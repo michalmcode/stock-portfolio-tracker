@@ -1,8 +1,6 @@
 package com.michalmcode.stockportfoliotracker.stock;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
-import org.antlr.v4.runtime.misc.NotNull;
 
 import java.util.Date;
 

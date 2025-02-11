@@ -1,20 +1,27 @@
 package com.michalmcode.stockportfoliotracker.stock;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/stocks")
 public class StockController {
-    private final StockRepository stockRepository;
+    private final StockRepository repository;
+    private final StockService service;
 
-    StockController(StockRepository stockRepository) {
-        this.stockRepository = stockRepository;
+    StockController(StockRepository repository, StockService service) {
+        this.repository = repository;
+        this.service = service;
     }
 
-    @GetMapping("/stocks")
-    public List<Stock> allStocks() {
-        return stockRepository.findAll();
+    @GetMapping
+    public List<Stock> getStocks() {
+        return repository.findAll();
+    }
+
+    @PostMapping
+    public Stock createStock(@RequestBody CreateStockDTO stockDTO) {
+        return service.save(stockDTO);
     }
 }
