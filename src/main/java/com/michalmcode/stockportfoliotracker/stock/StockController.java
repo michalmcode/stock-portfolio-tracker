@@ -1,5 +1,6 @@
 package com.michalmcode.stockportfoliotracker.stock;
 
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public class StockController {
     }
 
     @PostMapping
-    public Stock createStock(@RequestBody CreateStockDTO stockDTO) {
+    public Stock createStock(@Valid @RequestBody CreateStockDTO stockDTO) {
         return service.save(stockDTO);
     }
 }
