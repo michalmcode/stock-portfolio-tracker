@@ -4,16 +4,14 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class StockService {
-    private final StockMapper mapper;
     private final StockRepository repository;
 
-    StockService(StockRepository repository, StockMapper mapper) {
+    StockService(StockRepository repository) {
         this.repository = repository;
-        this.mapper = mapper;
     }
 
-    public Stock save(CreateStockDTO stockDto) {
-        Stock stock = mapper.createStockDtoToStock(stockDto);
+    public Stock save(CreateStockDto stockDto) {
+        Stock stock = StockMapper.INSTANCE.createStockDtotoStock(stockDto);
         repository.save(stock);
         return stock;
     }

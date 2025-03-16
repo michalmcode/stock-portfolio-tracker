@@ -5,7 +5,7 @@ import org.hibernate.validator.constraints.Length;
 
 import java.util.Date;
 
-public class CreateStockDTO {
+public class CreateStockDto {
 
     @NotBlank(message = "The name is required.")
     @Length(max = 255, message = "The name exceeds the maximum length of 3 characters.")
@@ -23,7 +23,7 @@ public class CreateStockDTO {
     @Min(value = 0, message="The open price must be greater than 0.")
     private Double openPrice;
 
-    public CreateStockDTO(String name, Date openDate, Double volume, Double openPrice) {
+    public CreateStockDto(String name, Date openDate, Double volume, Double openPrice) {
         this.name = name;
         this.openDate = openDate;
         this.volume = volume;

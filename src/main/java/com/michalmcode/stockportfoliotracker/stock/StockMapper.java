@@ -1,15 +1,12 @@
 package com.michalmcode.stockportfoliotracker.stock;
 
-import org.springframework.stereotype.Component;
+import org.mapstruct.Mapper;
+import org.mapstruct.factory.Mappers;
 
-@Component
-public class StockMapper {
-    public Stock createStockDtoToStock(CreateStockDTO createStockDTO) {
-        return new Stock(
-                createStockDTO.getName(),
-                createStockDTO.getOpenDate(),
-                createStockDTO.getVolume(),
-                createStockDTO.getOpenPrice()
-        );
-    }
+@Mapper
+public interface StockMapper {
+    StockMapper INSTANCE = Mappers.getMapper(StockMapper.class);
+
+    CreateStockDto stockToCreateStockDto(Stock stock);
+    Stock createStockDtotoStock(CreateStockDto stockDTO);
 }
