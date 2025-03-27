@@ -15,4 +15,10 @@ public class StockService {
         repository.save(stock);
         return stock;
     }
+
+    public Stock update(Stock stock, UpdateStockDto stockDto) {
+        StockMapper.INSTANCE.updateStockFromDto(stockDto, stock);
+        repository.save(stock);
+        return stock;
+    }
 }
