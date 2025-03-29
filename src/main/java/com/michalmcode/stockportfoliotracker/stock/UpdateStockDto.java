@@ -4,7 +4,7 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.PastOrPresent;
 import org.hibernate.validator.constraints.Length;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class UpdateStockDto {
     // Using wrapper classes because of partial update
@@ -12,10 +12,10 @@ public class UpdateStockDto {
     private String name;
 
     @PastOrPresent(message = "The date cannot be in the future.")
-    private Date openDate;
+    private LocalDate openDate;
 
     @PastOrPresent(message = "The date cannot be in the future.")
-    private Date closeDate;
+    private LocalDate closeDate;
 
     @Min(value = 0, message="The volume must be greater than 0.")
     private Double volume;
@@ -26,7 +26,7 @@ public class UpdateStockDto {
     @Min(value = 0, message="The open price must be greater than 0.")
     private Double closePrice;
 
-    public UpdateStockDto(String name, Date openDate, Date closeDate, Double volume, Double openPrice, Double closePrice) {
+    public UpdateStockDto(String name, LocalDate openDate, LocalDate closeDate, Double volume, Double openPrice, Double closePrice) {
         this.name = name;
         this.openDate = openDate;
         this.closeDate = closeDate;
@@ -43,19 +43,19 @@ public class UpdateStockDto {
         this.name = name;
     }
 
-    public Date getOpenDate() {
+    public LocalDate getOpenDate() {
         return openDate;
     }
 
-    public void setOpenDate(Date openDate) {
+    public void setOpenDate(LocalDate openDate) {
         this.openDate = openDate;
     }
 
-    public Date getCloseDate() {
+    public LocalDate getCloseDate() {
         return closeDate;
     }
 
-    public void setCloseDate(Date closeDate) {
+    public void setCloseDate(LocalDate closeDate) {
         this.closeDate = closeDate;
     }
 

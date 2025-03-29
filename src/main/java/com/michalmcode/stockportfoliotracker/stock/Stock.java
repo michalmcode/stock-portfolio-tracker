@@ -2,7 +2,7 @@ package com.michalmcode.stockportfoliotracker.stock;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "stocks")
@@ -15,9 +15,9 @@ public class Stock {
     private String name;
 
     @Column(nullable = false)
-    private Date openDate;
+    private LocalDate openDate;
 
-    private Date closeDate;
+    private LocalDate closeDate;
 
     @Column(nullable = false)
     private double volume;
@@ -42,7 +42,7 @@ public class Stock {
 
     }
 
-    public Stock(String name, Date openDate, double volume, double openPrice) {
+    public Stock(String name, LocalDate openDate, double volume, double openPrice) {
         this.name = name;
         this.openDate = openDate;
         this.volume = volume;
@@ -65,19 +65,19 @@ public class Stock {
         this.name = name;
     }
 
-    public Date getOpenDate() {
+    public LocalDate getOpenDate() {
         return openDate;
     }
 
-    public void setOpenDate(Date openDate) {
+    public void setOpenDate(LocalDate openDate) {
         this.openDate = openDate;
     }
 
-    public Date getCloseDate() {
+    public LocalDate getCloseDate() {
         return closeDate;
     }
 
-    public void setCloseDate(Date closeDate) {
+    public void setCloseDate(LocalDate closeDate) {
         this.closeDate = closeDate;
     }
 

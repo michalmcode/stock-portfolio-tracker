@@ -3,7 +3,7 @@ package com.michalmcode.stockportfoliotracker.stock;
 import jakarta.validation.constraints.*;
 import org.hibernate.validator.constraints.Length;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class CreateStockDto {
 
@@ -13,7 +13,7 @@ public class CreateStockDto {
 
     @NotNull(message = "The date is required.")
     @PastOrPresent(message = "The date cannot be in the future.")
-    private Date openDate;
+    private LocalDate openDate;
 
     @NotNull(message = "The volume is required.")
     @Min(value = 0, message="The volume must be greater than 0.")
@@ -23,7 +23,7 @@ public class CreateStockDto {
     @Min(value = 0, message="The open price must be greater than 0.")
     private Double openPrice;
 
-    public CreateStockDto(String name, Date openDate, Double volume, Double openPrice) {
+    public CreateStockDto(String name, LocalDate openDate, Double volume, Double openPrice) {
         this.name = name;
         this.openDate = openDate;
         this.volume = volume;
@@ -38,11 +38,11 @@ public class CreateStockDto {
         this.name = name;
     }
 
-    public Date getOpenDate() {
+    public LocalDate getOpenDate() {
         return openDate;
     }
 
-    public void setOpenDate(Date openDate) {
+    public void setOpenDate(LocalDate openDate) {
         this.openDate = openDate;
     }
 
